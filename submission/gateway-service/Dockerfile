@@ -1,0 +1,10 @@
+FROM node:18-slim
+WORKDIR /usr/src/app
+COPY package*.json ./
+RUN npm install
+COPY . .
+
+# Gateway Service uses port 3003
+EXPOSE 3003
+
+CMD ["node", "app.js"]
